@@ -64,8 +64,8 @@
             android:textSize="15sp"
             android:textStyle="bold|italic"
             android:layout_alignParentBottom="true"
-            android:text="We help you find developers on Github that code using Java and Python programming languages"
-            tools:text="We help you find developers on Github that code using Java and Python programming languages" />
+            android:text="We help you find developers on Github that code using Python programming language"
+            tools:text="We help you find developers on Github that code using Python programming language" />
 
     </LinearLayout>
 

@@ -25,12 +25,16 @@ public class ProfilePage extends AppCompatActivity {
         ImageView profileImageView = (ImageView) findViewById(R.id.profileImageView);
         TextView profileUsernameView = (TextView) findViewById(R.id.profileUserName);
         TextView profileGitHubUrlView = (TextView) findViewById(R.id.profileGitHubUrl);
+        TextView profileActive = (TextView) findViewById(R.id.profileActive);
+        //TextView profileLocation = (TextView) findViewById(R.id.profileGitHubLocation);
         Button shareProfileView = (Button) findViewById(R.id.profileShare);
 
         Intent intent = getIntent();
         final String userName = intent.getStringExtra(DevelopersAdapter.KEY_NAME);
         String profileImage = intent.getStringExtra(DevelopersAdapter.KEY_IMAGE);
         final String gitHubUrl = intent.getStringExtra(DevelopersAdapter.KEY_URL);
+        final String gitHubActive = intent.getStringExtra(DevelopersAdapter.KEY_SCORE);
+        //final String gitHubLocation = intent.getStringExtra(DevelopersAdapter.KEY_LOCATION);
 
 
         Picasso.with(this)
@@ -39,6 +43,8 @@ public class ProfilePage extends AppCompatActivity {
 
         profileUsernameView.setText(userName);
         profileGitHubUrlView.setText(gitHubUrl);
+        profileActive.setText(gitHubActive);
+        //profileGitHubUrlView.setText(gitHubLocation);
 
         profileGitHubUrlView.setOnClickListener(new View.OnClickListener() {
             @Override

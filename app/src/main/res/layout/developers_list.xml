@@ -33,16 +33,29 @@
 
             <TextView
                 android:id="@+id/username"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textSize="15sp"
+                tools:text="username" />
+
+            <TextView
+                android:id="@+id/score"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:textSize="15sp"
-                tools:text="username"
                 android:textColor="#000"
-                android:fontFamily="sans-serif-condensed"/>
+                android:textSize="15sp"
+                tools:text="Score: 1" />
 
         </LinearLayout>
 

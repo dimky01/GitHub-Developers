@@ -64,6 +64,7 @@
                     android:src="@drawable/location" />
 
                 <TextView
+                    android:id="@+id/profileGitHubLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -72,6 +73,7 @@
                     android:textColor="#fff"
 
                     android:textSize="17sp" />
+
             </LinearLayout>
 
         <TextView
@@ -87,6 +89,20 @@
             android:textColor="#7ec0ee"
             android:textSize="20sp"
             tools:text="www.github.com/moyeen" />
+
+        <TextView
+            android:id="@+id/profileActive"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:padding="6dp"
+            android:textColor="#7ec0ee"
+            android:textSize="20sp"
+            tools:text="3rd March 2021" />
 
     </LinearLayout>
 
