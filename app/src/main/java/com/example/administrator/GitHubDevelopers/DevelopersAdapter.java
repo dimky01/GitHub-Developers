@@ -23,6 +23,8 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.Vi
     public static final String KEY_NAME = "name";
     public static final String KEY_IMAGE = "imagers";
     public static final String KEY_URL = "url";
+    public static final String KEY_SCORE = "score";
+    //public static final String KEY_LOCATION = "location";
 
     //we define a list from the Developer class
     private List<Developers> developersLists;
@@ -70,6 +72,8 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.Vi
                 .load(developers.getImageUrl())
                 .into(holder.image_Url);
 
+        //holder.gitHub_Score.setText("Score:" + developers.getGitHubScore());
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +82,8 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.Vi
                 skipIntent.putExtra(KEY_NAME, developer1.getUsername());
                 skipIntent.putExtra(KEY_IMAGE, developer1.getImageUrl());
                 skipIntent.putExtra(KEY_URL, developer1.getGitHubUrl());
+                skipIntent.putExtra(KEY_SCORE, developer1.getGitHubScore());
+                //skipIntent.putExtra(KEY_LOCATION, developer1.getGitHubLocation());
                 v.getContext().startActivity(skipIntent);
             }
         });
@@ -94,6 +100,8 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.Vi
         public TextView username;
         public ImageView image_Url;
         public TextView gitHub_Url;
+        public TextView gitHub_Score;
+        //public TextView gitHub_Location;
         public LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
@@ -103,6 +111,8 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.Vi
             image_Url = (ImageView) itemView.findViewById(R.id.imageView);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
             gitHub_Url = (TextView) itemView.findViewById(R.id.profileShare);
+            gitHub_Score = (TextView) itemView.findViewById(R.id.score);
+            //gitHub_Location = (TextView) itemView.findViewById(R.id.profileGitHubLocation);
         }
     }
 }

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private List<Developers> developersLists;
     private static final String URL_DATA = "https://api.github.com/search/users?q=language:python&java+location:US";
+    private static final String URL_ACTIVE = "https://api.github.com/users/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,10 @@ public class MainActivity extends AppCompatActivity {
                         Developers developers = new Developers(data.getString("login"),
                                 data.getString("avatar_url"),
                                 data.getString("html_url"));
-                        developersLists.add(developers);
+                                //data.getString("score"));
+                        loadLastActiveDate(developers);
+
+                        boolean add = developersLists.add(developers);
 
                     }
                     adapter = new DevelopersAdapter(developersLists, getApplicationContext());
@@ -81,5 +85,32 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+
+    private void loadLastActiveDate(final Developers developers){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_ACTIVE+developers.getUsername(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+                    String activeDate = jsonObject.getString("updated_at");
+                    developers.setmGitHubScore("Last Active Date: "+ activeDate.substring(0,10));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, "Error:" + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
     }
 }
